@@ -2,8 +2,8 @@
 const express = require('express');
 const router = express.Router();
 
-//require the toppings controller
-const messagesController = require('../controllers/toppings');
+//require the messages controller
+const messagesController = require('../controllers/messages');
 
 router.get("/",  messagesController.getAll);
 router.post("/" , messagesController.create);
