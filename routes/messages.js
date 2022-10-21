@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+//require express router
+const express = require('express');
+const router = express.Router();
 
-const messageSchema = new Schema({
-    name:  { type: String, required: true },
-    message: { type: String, required: true },
-});
+//require the toppings controller
+const messagesController = require('../controllers/toppings');
 
-const Message = mongoose.model('Message', messageSchema);
+router.get("/",  messagesController.getAll);
+router.post("/" , messagesController.create);
 
-module.exports = Message;
+module.exports = router;
