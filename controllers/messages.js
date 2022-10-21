@@ -18,3 +18,27 @@ const getAll = (req, res) => {
         }
     });
 };
+
+const create = (req, res) => {
+    let user = req.body.user;
+    let message = req.body.message;
+    let newMessage = new Message();
+    newMessage.user = user;
+    newMessage.message = message;
+    newMessage.save((err, message) => {
+        if (err) {
+            let result = {
+                status: "error",
+                message: "Oops, could not save message"
+            };
+            res.json(result);
+        } else {
+            let result = {
+                status: "success",
+                message: "Message saved",
+                data: message
+            };
+            res.json(result);
+        }
+    });
+};

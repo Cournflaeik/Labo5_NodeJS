@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-app.use(/api/messages, messagesRouter);
+app.use("/api/messages", messagesRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
