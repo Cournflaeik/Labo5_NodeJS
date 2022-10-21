@@ -42,3 +42,8 @@ const create = (req, res) => {
         }
     });
 };
+
+module.exports = {
+    getAll,
+    create,
+  };

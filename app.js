@@ -8,8 +8,13 @@ const messagesRouter = require ('./routes/messages');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
+const port = 3000;
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017');
+
+// routers
 app.use("/api/messages", messagesRouter);
 
 // view engine setup
@@ -39,6 +44,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
 module.exports = app;
