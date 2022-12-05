@@ -1,5 +1,3 @@
-const Message = require('../models/messages');
-
 const getAll = (req, res) => {
     if (req.query.user) {
         let user = req.query.user;
