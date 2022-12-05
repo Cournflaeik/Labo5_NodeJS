@@ -1,22 +1,27 @@
 const Message = require('../models/messages');
 
 const getAll = (req, res) => {
-    let message = Message.find({}, (err, messages) => {
-        if (err) {
-            let result = {
-                status: "error",
-                message: "Oops, could not get messages"
-            };
-            res.json(result);
-        } else {
-            let result = {
-                status: "success",
-                message: "Messages retrieved",
-                data: messages
-            };
-            res.json(result);
+    // check for query user
+    if (req.query.user) {
+        let user = req.query.user;
+        const response = {
+            status: "success",
+            message: "GETTING messages from user: " + user,
+            data: {user: user, message: "Hello"}
+        }   
+        res.json(response);
+    } else {
+        const response = {
+            status: "success",
+            message: "GETTING all messages",
+            data: [
+                {user: "Anna", message: "Hello there"}, 
+                {user: "Dirk", message: "General Kenobi"}, 
+                {user: "Anna", message: "You are a bold one"}
+            ]
         }
-    });
+        res.json(response);
+    }
 };
 
 const create = (req, res) => {
