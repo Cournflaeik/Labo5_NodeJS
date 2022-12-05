@@ -8,6 +8,7 @@ var messagesRouter = require ('./routes/messages');
 var indexRouter = require('./routes/index');
 
 const app = express();
+const port = 3000;
 
 // routers
 app.use("/api/messages", messagesRouter);
