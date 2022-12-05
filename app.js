@@ -9,7 +9,7 @@ var messagesRouter = require ('./routes/messages');
 var indexRouter = require('./routes/index');
 
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // routers
 app.use("/api/messages", messagesRouter);
@@ -44,8 +44,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
 
 module.exports = app;
