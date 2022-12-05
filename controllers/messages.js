@@ -1,7 +1,6 @@
 const Message = require('../models/messages');
 
 const getAll = (req, res) => {
-    // check for query user
     if (req.query.user) {
         let user = req.query.user;
         const response = {
