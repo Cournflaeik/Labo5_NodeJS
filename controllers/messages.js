@@ -24,6 +24,16 @@ const getAll = (req, res) => {
     }
 };
 
+const getById = (req, res) => {
+    const id = req.params.id;
+    const response = {
+        status: "success",
+        message: "GETTING message with id: " + id,
+        data: {id: id, user: "Anna", message: "Hello there"}
+    }
+    res.json(response);
+};
+
 const create = (req, res) => {
     let user = req.body.user;
     let message = req.body.message;
@@ -38,4 +48,5 @@ const create = (req, res) => {
 module.exports = {
     getAll,
     create,
-  };
+    getById
+};
