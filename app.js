@@ -3,16 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const messagesRouter = require ('./routes/messages');
 
+var messagesRouter = require ('./routes/messages');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 const app = express();
-const port = 3000;
-
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017');
 
 // routers
 app.use("/api/messages", messagesRouter);
@@ -28,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/v1/messages', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
